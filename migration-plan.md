@@ -1,55 +1,64 @@
 # SDG-FETCH Migration Plan
 
-## 1. Implement Lifecycle Scripts
+## Directory Mapping
 
-All four root-level lifecycle scripts are **empty stubs** — must be implemented:
+| Source | Installed to |
+|--------|-------------|
+| `config/SDG-FETCH/conf/` | `~/.config/SDG-FETCH/conf/` |
+| `config/SDG-FETCH/src/` | `~/.config/SDG-FETCH/src/` |
+| `config/SDG-FETCH/gen/` | `~/.local/SDG-FETCH/gen/` (generated, writable) |
+| `local/SDG-FETCH/fetch.sh` | `~/.local/SDG-FETCH/fetch.sh` |
+| `local/SDG-FETCH/fetch-conf.sh` | `~/.local/SDG-FETCH/fetch-conf.sh` |
+| `local/SDG-FETCH/update-files.sh` | `~/.local/SDG-FETCH/update-files.sh` |
+| `tips/` | `~/.local/tips/SDG-FETCH/` |
+| `docs/` | `~/.local/docs/SDG-FETCH/` |
 
-| Script | Purpose |
-|--------|---------|
-| `install.sh` | Copy `config/SDG-FETCH/` → `~/.config/sdgos/fastfetch/`, copy `local/SDG-FETCH/` scripts to `~/.config/sdgos/fastfetch/`, make executable |
-| `uninstall.sh` | Remove `~/.config/sdgos/fastfetch/`, remove `~/.config/fetch.state` |
-| `update.sh` | Re-run install steps (overwrite configs, re-generate ASCII art) |
-| `detect.sh` | Check if `fastfetch` command exists, verify `~/.config/fetch.state` is valid |
+## Path Rewrites
 
-## 2. Path Audit
+### fetch.sh (internal paths)
+```
+SRC_DIR="$HOME/.config/sdgos/fastfetch/gen"    → SRC_DIR="$HOME/.local/SDG-FETCH/gen"
+CONF_DIR="$HOME/.config/sdgos/fastfetch/conf"  → CONF_DIR="$HOME/.config/SDG-FETCH/conf"
+```
 
-### 2.1 Script paths reference `~/.config/sdgos/fastfetch/`
-All current scripts already use `$HOME/.config/sdgos/fastfetch/` — good. No change needed for the scripts themselves.
+### fetch-conf.sh (internal + cross)
+```
+bash -c ~/.config/sdgos/fastfetch/update-files.sh   → ~/.local/SDG-FETCH/update-files.sh
+SRC_DIR="$HOME/.config/sdgos/fastfetch/gen"          → SRC_DIR="$HOME/.local/SDG-FETCH/gen"
+CONF_DIR="$HOME/.config/sdgos/fastfetch/conf"        → CONF_DIR="$HOME/.config/SDG-FETCH/conf"
+bat ~/.config/sdgos/fastfetch/gen/{}                 → bat $HOME/.local/SDG-FETCH/gen/{}
+fastfetch ... -c ~/.config/sdgos/fastfetch/conf/{}   → fastfetch ... -c $HOME/.config/SDG-FETCH/conf/{}
+~/.config/fetch.state                                 → ~/.config/SDG-FETCH/fetch.state
+```
 
-### 2.2 Image source and generated output paths
-- Source: `config/SDG-FETCH/src/` → deploys to `~/.config/sdgos/fastfetch/src/`
-- Generated: `config/SDG-FETCH/gen/` → deploys to `~/.config/sdgos/fastfetch/gen/`
-- Configs: `config/SDG-FETCH/conf/` → deploys to `~/.config/sdgos/fastfetch/conf/`
+### update-files.sh (internal)
+```
+SRC_DIR="$HOME/.config/sdgos/fastfetch/src"   → SRC_DIR="$HOME/.config/SDG-FETCH/src"
+OUT_DIR="$HOME/.config/sdgos/fastfetch/gen"    → OUT_DIR="$HOME/.local/SDG-FETCH/gen"
+```
 
-### 2.3 State file location
-- `fetch.sh` and `fetch-conf.sh` read/write `~/.config/fetch.state` (top-level dotfile, not under `~/.config/sdgos/`).
-- Consider moving to `~/.config/sdgos/fastfetch/fetch.state` for consistency.
+## Lifecycle Scripts
 
-## 3. Modular Docs/Tips Contribution
+All four root-level scripts are empty. Implement:
 
-### 3.1 Tips
-- SDG-FETCH can contribute tips about fastfetch commands, custom logos, fetch-conf TUI usage.
-- Add a `tips/` directory (currently empty) with tip entries.
-- Lifecycle scripts should merge these into the global tips system.
+- **install.sh**: Copy config, local, docs, tips dirs to respective `~/.config/SDG-FETCH/`, `~/.local/SDG-FETCH/`, `~/.local/docs/SDG-FETCH/`, `~/.local/tips/SDG-FETCH/`. Run `update-files.sh` to generate ASCII art. Make scripts executable.
+- **uninstall.sh**: Remove all SDG-FETCH dirs from `~/.config/`, `~/.local/`, `~/.local/tips/`, `~/.local/docs/`. Remove `~/.config/SDG-FETCH/fetch.state`.
+- **update.sh**: Re-run install steps.
+- **detect.sh**: Check `fastfetch`, `jp2a`, `fzf`, `bat`.
 
-### 3.2 Help system
-- SDG-FETCH can add help topics about using fetch/fetchconf.
-- Add content under `docs/` or contribute to the help topics system via install script.
+## Modular Tips
 
-## 4. Empty Directory Cleanup
+- Create `tips/` with entries about fastfetch usage, fetchconf TUI, logo switching
+- `install.sh` copies to `~/.local/tips/SDG-FETCH/`
 
-| Directory | Status |
-|-----------|--------|
-| `cache/` | Empty — remove or document purpose |
-| `tips/` | Empty — add tips or remove |
-| `other/` | Empty — remove or document purpose |
+## Modular Docs
 
-## 5. Pending Issues
+- `docs/SDG-FETCH/README.md` already exists — `install.sh` copies to `~/.local/docs/SDG-FETCH/`
 
-### 5.1 `fetch-conf.sh` references `update-files.sh`
-- Line 3: `bash -c ~/.config/sdgos/fastfetch/update-files.sh` — this should be a direct call, not wrapped in `bash -c` unnecessarily.
-- Change to: `~/.config/sdgos/fastfetch/update-files.sh` or `bash ~/.config/sdgos/fastfetch/update-files.sh`.
+## Empty Dir Cleanup
 
-### 5.2 Source images tar
-- Consider whether 33+ `.png`/`.jpg` files should be in Git or downloaded. They're ~50-200KB each — may bloat the repo.
-- If keeping in Git, consider adding `.gitattributes` for LFS.
+| Dir | Action |
+|-----|--------|
+| `tips/` | Populate or remove |
+| `other/` | Remove |
+| `cache/` | Remove |
