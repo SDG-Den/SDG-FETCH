@@ -1,9 +1,9 @@
 #!/bin/bash
 
-bash -c ~/.config/sdgos/fastfetch/update-files.sh
+bash -c ~/.local/SDG-FETCH/update-files.sh
 
-SRC_DIR="$HOME/.config/sdgos/fastfetch/gen"
-CONF_DIR="$HOME/.config/sdgos/fastfetch/conf"
+SRC_DIR="$HOME/.config/SDG-FETCH/gen"
+CONF_DIR="$HOME/.config/SDG-FETCH/conf"
 
 SELECTEDLOGO=$(ls -1 $SRC_DIR | fzf --layout=reverse --preview-window=right:70% --prompt='Select a logo: ' --preview-label='Preview:' --preview='bat ~/.config/sdgos/fastfetch/gen/{}')
 

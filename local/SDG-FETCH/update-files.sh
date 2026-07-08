@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define directories
-SRC_DIR="$HOME/.config/sdgos/fastfetch/src"
-OUT_DIR="$HOME/.config/sdgos/fastfetch/gen"
+SRC_DIR="$HOME/.config/SDG-FETCH/src"
+OUT_DIR="$HOME/.config/SDG-FETCH/gen"
 
 # Create output directory if it doesn't exist
 mkdir -p "$OUT_DIR"

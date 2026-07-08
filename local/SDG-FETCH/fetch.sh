@@ -4,8 +4,8 @@ DISTRO="$1"
 
 
 
-SRC_DIR="$HOME/.config/sdgos/fastfetch/gen"
-CONF_DIR="$HOME/.config/sdgos/fastfetch/conf"
+SRC_DIR="$HOME/.config/SDG-FETCH/gen"
+CONF_DIR="$HOME/.config/SDG-FETCH/conf"
 
 LOGO=$(cat ~/.config/fetch.state | cut -d: -f1)
 CONF=$(cat ~/.config/fetch.state | cut -d: -f2)
