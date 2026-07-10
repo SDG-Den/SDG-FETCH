@@ -6,31 +6,17 @@ unipkg install any fastfetch
 unipkg install any fzf
 unipkg install any bat
 
-# set working directory
-WORKDIR=/home/$(whoami)/.cache/SDG-PKG/sdg-fetch
+WORKDIR="$HOME/.cache/SDG-PKG/sdg-fetch"
 
-# install default configs
-cp -r $WORKDIR/config/* /home/$(whoami)/.config
+cp -r "$WORKDIR/config/"* "$HOME/.config/"
+cp -r "$WORKDIR/local/"* "$HOME/.local/"
+cp -r "$WORKDIR/docs/"* "$HOME/.local/docs/"
+cp -r "$WORKDIR/tips/"* "$HOME/.local/tips/"
 
-# install binaries
-cp -r $WORKDIR/local/* /home/$(whoami)/.local
+chmod a+x "$HOME/.local/SDG-FETCH/fetch.sh"
 
-# install docs and tips
-mkdir -p /home/$(whoami)/.local/docs
-mkdir -p /home/$(whoami)/.local/tips
-cp -r $WORKDIR/docs/* /home/$(whoami)/.local/docs
-cp -r $WORKDIR/tips/* /home/$(whoami)/.local/tips
+sudo ln -sf "$HOME/.local/SDG-FETCH/fetch.sh" /usr/bin/sdgfetch
+sudo ln -sf "$HOME/.local/SDG-FETCH/fetch-conf.sh" /usr/bin/sdgfetch-conf
 
-# make entrypoint executable
-chmod a+x /home/$(whoami)/.local/SDG-FETCH/fetch.sh
-
-# symlink entrypoint
-sudo ln -sf /home/$(whoami)/.local/SDG-FETCH/fetch.sh /usr/bin/sdgfetch
-sudo ln -sf /home/$(whoami)/.local/SDG-FETCH/fetch-conf.sh /usr/bin/sdgfetch-conf
-
-# verify binary
 which sdgfetch || echo "INSTALL FAILED!"
-which sdgfetch-conf || echo "INSTLAL FAILED!"
-
-sdgfetch-conf
-
+which sdgfetch-conf || echo "INSTALL FAILED!"

@@ -1,15 +1,13 @@
 #!/bin/bash
 
-rm -rf /home/$(whoami)/.local/SDG-FETCH
-cp -r /home/$(whoami)/.cache/SDG-PKG/sdg-fetch/local/* /home/$(whoami)/.local
-sudo ln -sf /home/$(whoami)/.local/SDG-FETCH/fetch.sh /usr/bin/sdgfetch
-sudo ln -sf /home/$(whoami)/.local/SDG-FETCH/fetch-conf.sh /usr/bin/sdgfetch-conf
+WORKDIR="$HOME/.cache/SDG-PKG/sdg-fetch"
 
-rm -rf /home/$(whoami)/.local/docs/SDG-FETCH
-rm -rf /home/$(whoami)/.local/tips/SDG-FETCH
-mkdir -p /home/$(whoami)/.local/docs
-mkdir -p /home/$(whoami)/.local/tips
-cp -r /home/$(whoami)/.cache/SDG-PKG/sdg-fetch/docs/* /home/$(whoami)/.local/docs
-cp -r /home/$(whoami)/.cache/SDG-PKG/sdg-fetch/tips/* /home/$(whoami)/.local/tips
+rm -rf "$HOME/.local/SDG-FETCH"
+cp -r "$WORKDIR/local/"* "$HOME/.local/"
 
+rm -rf "$HOME/.local/docs/SDG-FETCH" "$HOME/.local/tips/SDG-FETCH"
+cp -r "$WORKDIR/docs/"* "$HOME/.local/docs/"
+cp -r "$WORKDIR/tips/"* "$HOME/.local/tips/"
 
+sudo ln -sf "$HOME/.local/SDG-FETCH/fetch.sh" /usr/bin/sdgfetch
+sudo ln -sf "$HOME/.local/SDG-FETCH/fetch-conf.sh" /usr/bin/sdgfetch-conf
