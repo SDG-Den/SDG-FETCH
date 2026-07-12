@@ -1,7 +1,7 @@
 Package Name: sdg-fetch
 Descriptive Name: SDG System Fetch
-Source: https://git.sdgcloud.nl/SDGDen/SDG-FETCH
-Maintainer: SDGDen <sdgden@sdgcloud.nl>
+Source: https://github.com/SDG-Den/SDG-FETCH
+Maintainer: SDGDen
 Version:0.2
 
 Dependencies: 
