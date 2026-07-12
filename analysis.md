@@ -4,7 +4,7 @@
 System Info / Utility Module
 
 ## Description
-SDG-FETCH is a wrapper and configuration system around `fastfetch`. It provides an interactive logo picker (49 ASCII art logos) and style picker (49 display presets) with persistent state saved to `~/.config/fetch.state`.
+SDG-FETCH is a wrapper and configuration system around `fastfetch`. It provides an interactive logo picker (45 ASCII art logos) and style picker (49 display presets) with persistent state saved to `~/.config/fetch.state`.
 
 ## CLI Entry Points
 - `/usr/bin/sdgfetch` — Display system info with selected logo + preset
@@ -39,11 +39,11 @@ SDG-FETCH/
 │   ├── fetch-conf.sh             # Configurator TUI
 │   └── update-files.sh           # Image-to-ASCII converter (jp2a)
 ├── config/SDG-FETCH/
-│   ├── gen/                      # 49 ASCII art logos
+│   ├── gen/                      # 45 ASCII art logos
 │   ├── src/                      # 31 source images (PNG/JPG)
 │   └── conf/                     # 49 fastfetch JSONC presets
 ├── docs/SDG-FETCH/README.md      # Quick reference (22 lines)
-└── tips/SDG-FETCH/exampletips.md # Placeholder
+└── tips/SDG-FETCH/             # Tips directory (tips.list)
 ```
 
 ## Features

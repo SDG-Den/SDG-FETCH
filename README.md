@@ -14,6 +14,23 @@ SDG-FETCH wraps `fastfetch` with an interactive logo and preset picker. It provi
 - **Auto-conversion** — place PNG/JPG in `src/`, run `sdgfetch-conf` to convert via `jp2a`
 - **Distro override** — `sdgfetch archlinux` for themed display
 
+## Documentation
+
+Full docs deployed to `~/.local/docs/SDG-FETCH/`:
+
+| Doc | Description |
+|-----|-------------|
+| [Usage Guide](docs/SDG-FETCH/01-usage-guide.md) | CLI reference, logo modes, dependencies |
+| [Logo Library](docs/SDG-FETCH/02-logo-library.md) | All 45 logos categorized |
+| [Preset Reference](docs/SDG-FETCH/03-preset-reference.md) | 49 display presets by category |
+| [Customization](docs/SDG-FETCH/04-customization.md) | Adding logos, editing presets, ANSI colors |
+| [Configuration](docs/SDG-FETCH/05-configuration.md) | State file format, distro override, resolution logic |
+| [Integration](docs/SDG-FETCH/06-integration.md) | Terminal startup, cross-package usage |
+
+## Tips
+
+Quick tips in `~/.local/tips/SDG-FETCH/tips.list` covering common workflows: running `sdgfetch`, using the configurator, adding custom logos, and more.
+
 ## CLI Usage
 
 ```bash
@@ -38,3 +55,4 @@ sdgpkg install sdg-fetch
 ## Related Packages
 
 - **SDG-TERM** — runs `sdgfetch` on every terminal startup
+- **SDG-DOCS** — indexes and serves documentation
