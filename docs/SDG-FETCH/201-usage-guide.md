@@ -16,11 +16,11 @@ sdgfetch archlinux        # Override logo with distro-specific logo
 How it works:
 
 1. Reads `~/.config/fetch.state` for the saved `logoName:configName` pair
-2. If a distro argument is given, passes it directly to `fastfetch -l` to use the distro's built-in logo
+2. If a distro argument is given, passes it directly to `fastfetch -l` to display that distro's built-in logo
 3. Otherwise resolves the logo path from `~/.config/SDG-FETCH/gen/` and the preset from `~/.config/SDG-FETCH/conf/`
 4. Runs `fastfetch` with the resolved logo and preset
 
-Logo modes:
+Logo modes (saved in `fetch.state` via `sdgfetch-conf`):
 
 | Mode | Behavior |
 |------|----------|

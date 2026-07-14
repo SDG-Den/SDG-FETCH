@@ -37,8 +37,4 @@ Special modes are handled internally by `fetch.sh`:
 - **`distro`** — Uses fastfetch's built-in distro detection for the logo
 - **`distro-themed`** — Uses fastfetch's built-in distro logo with custom ANSI color overrides
 
-## How Logos Work
-
-When a logo other than the special modes is selected (e.g., `thinkpad`), `fetch.sh` passes `-l ~/.config/SDG-FETCH/gen/thinkpad` to fastfetch. The file is a plain-text ASCII art rendering.
-
-To add new logos, see the [Customization](04-customization.md) guide.
+To add new logos, see the [Customization](302-customization-and-configuration.md) guide.
