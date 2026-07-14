@@ -1,6 +1,6 @@
 # Preset Reference
 
-Fastfetch presets are JSONC configuration files placed in `~/.config/SDG-FETCH/conf/`. SDG-FETCH ships with 49 presets covering a range of display styles.
+Fastfetch presets are JSONC configuration files placed in `~/.config/SDG-FETCH/conf/`. SDG-FETCH ships with presets covering a range of display styles.
 
 The preset directory is the standard location for fastfetch configs. You can add your own `.jsonc` files — they appear in the `sdgfetch-conf` picker automatically.
 
