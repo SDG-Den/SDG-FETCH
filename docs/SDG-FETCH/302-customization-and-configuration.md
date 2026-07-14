@@ -81,7 +81,7 @@ sdgfetch archlinux
 
 ## ANSI Color Overrides
 
-When using the `distro-themed` logo mode, SDG-FETCH applies custom ANSI colors:
+When using the `distro-themed` logo mode, SDG-FETCH applies custom ANSI colors. These specific color values are chosen because they are dynamically swapped by **matugen** at the system level to match your current theme colors:
 
 ```
 --logo-color-1 magenta

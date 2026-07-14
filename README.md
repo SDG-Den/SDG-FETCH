@@ -4,12 +4,12 @@ System information fetch utility with ASCII art logos and fastfetch presets.
 
 ## Description
 
-SDG-FETCH wraps `fastfetch` with an interactive logo and preset picker. It provides 45 ASCII art logos (distros, brands, pride flags, culture) and 49 display presets (neofetch/screenfetch clones, framed boxes, tree layouts, themed). Selections persist to `~/.config/fetch.state`.
+SDG-FETCH wraps `fastfetch` with an interactive logo and preset picker. It provides a library of ASCII art logos (distros, brands, pride flags, culture) and many display presets (neofetch/screenfetch clones, framed boxes, tree layouts, themed). Selections persist to `~/.config/fetch.state`.
 
 ## Features
 
-- **45 ASCII logos** — distros (arch, nyarch, cachy), gaming brands (ROG, Alienware, MSI), laptop brands (ThinkPad, Dell, HP), meme/culture, pride flags
-- **49 fastfetch presets** — neofetch/screenfetch/paleofetch clones, minimal, framed, tree, themed, comprehensive
+- **ASCII logos** — distros (arch, nyarch, cachy), gaming brands (ROG, Alienware, MSI), laptop brands (ThinkPad, Dell, HP), meme/culture, pride flags
+- **Fastfetch presets** — neofetch/screenfetch/paleofetch clones, minimal, framed, tree, themed, comprehensive
 - **Persistent state** — logo and preset saved to `~/.config/fetch.state`
 - **Auto-conversion** — place PNG/JPG in `src/`, run `sdgfetch-conf` to convert via `jp2a`
 - **Distro override** — `sdgfetch archlinux` for themed display
