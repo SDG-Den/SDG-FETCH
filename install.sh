@@ -13,10 +13,8 @@ cp -r "$WORKDIR/local/"* "$HOME/.local/"
 cp -r "$WORKDIR/docs/"* "$HOME/.local/docs/"
 cp -r "$WORKDIR/tips/"* "$HOME/.local/tips/"
 
-chmod a+x "$HOME/.local/SDG-FETCH/fetch.sh"
+chmod a+x "$HOME/.local/SDG-FETCH/fetch-cli.sh"
 
-sudo ln -sf "$HOME/.local/SDG-FETCH/fetch.sh" /usr/bin/sdgfetch
-sudo ln -sf "$HOME/.local/SDG-FETCH/fetch-conf.sh" /usr/bin/sdgfetch-conf
+sudo ln -sf "$HOME/.local/SDG-FETCH/fetch.sh-cli" /usr/bin/sdgfetch
 
 which sdgfetch || echo "INSTALL FAILED!"
-which sdgfetch-conf || echo "INSTALL FAILED!"

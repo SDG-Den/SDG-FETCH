@@ -9,5 +9,4 @@ rm -rf "$HOME/.local/docs/SDG-FETCH" "$HOME/.local/tips/SDG-FETCH"
 cp -r "$WORKDIR/docs/"* "$HOME/.local/docs/"
 cp -r "$WORKDIR/tips/"* "$HOME/.local/tips/"
 
-sudo ln -sf "$HOME/.local/SDG-FETCH/fetch.sh" /usr/bin/sdgfetch
-sudo ln -sf "$HOME/.local/SDG-FETCH/fetch-conf.sh" /usr/bin/sdgfetch-conf
+sudo ln -sf "$HOME/.local/SDG-FETCH/fetch-cli.sh" /usr/bin/sdgfetch

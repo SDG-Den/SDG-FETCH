@@ -20,12 +20,11 @@ Full docs deployed to `~/.local/docs/SDG-FETCH/`:
 
 | Doc | Description |
 |-----|-------------|
-| [Usage Guide](docs/SDG-FETCH/01-usage-guide.md) | CLI reference, logo modes, dependencies |
-| [Logo Library](docs/SDG-FETCH/02-logo-library.md) | All 45 logos categorized |
-| [Preset Reference](docs/SDG-FETCH/03-preset-reference.md) | 49 display presets by category |
+| [Usage Guide](docs/SDG-FETCH/201-usage-guide.md) | CLI reference, logo modes, dependencies |
+| [Logo Library](docs/SDG-FETCH/202-logo-library.md) | All 45 logos categorized |
+| [Preset Reference](docs/SDG-FETCH/301-preset-reference.md) | 49 display presets by category |
 | [Customization](docs/SDG-FETCH/302-customization-and-configuration.md) | Adding logos, editing presets, ANSI colors |
-| [Configuration](docs/SDG-FETCH/05-configuration.md) | State file format, distro override, resolution logic |
-| [Integration](docs/SDG-FETCH/06-integration.md) | Terminal startup, cross-package usage |
+| [Integration](docs/SDG-FETCH/501-integration.md) | Terminal startup, cross-package usage |
 
 ## Tips
 
