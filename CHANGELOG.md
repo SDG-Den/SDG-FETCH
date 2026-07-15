@@ -1,3 +1,9 @@
+#  sdg-fetch update 0.3.1
+    
+## changelog 0.3 > 0.3.1
+
+updated repo structure and entrypoints
+
 #  sdg-fetch update 0.3
     
 ## changelog 0.2.1 > 0.3

@@ -8,7 +8,8 @@ unipkg install any bat
 
 WORKDIR="$HOME/.cache/SDG-PKG/sdg-fetch"
 
-cp -r "$WORKDIR/config/"* "$HOME/.config/"
+mkdir -p "$HOME/.local/fetch"
+cp -r "$WORKDIR/other/"* "$HOME/.local/fetch"
 cp -r "$WORKDIR/local/"* "$HOME/.local/"
 cp -r "$WORKDIR/docs/"* "$HOME/.local/docs/"
 cp -r "$WORKDIR/tips/"* "$HOME/.local/tips/"
