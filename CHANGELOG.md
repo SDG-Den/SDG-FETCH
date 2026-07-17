@@ -1,3 +1,9 @@
+#  sdg-fetch update 0.4
+    
+## changelog 0.3.2 > 0.4
+
+updated docs, default config and install entrypoint. 
+
 #  sdg-fetch update 0.3.2
     
 ## changelog  0.3.1 > 0.3.2

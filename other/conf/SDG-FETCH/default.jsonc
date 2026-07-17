@@ -58,11 +58,11 @@
         },
         {
             "type": "custom",
-            "format": "In order to change your fetch configuration, run {#@196}fetchconf"
+            "format": "In order to change your fetch configuration, run {#@196}sdgfetch config"
         },
         {
             "type": "custom",
-            "format": "In order to fetch again with the configuration, just run {#@196}fetch"
+            "format": "In order to fetch again with the configuration, just run {#@196}sdgfetch"
         }
     ]
 }
