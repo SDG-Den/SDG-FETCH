@@ -15,10 +15,8 @@ Restructure SDG-FETCH so that separate SDG packages can deploy their own fastfet
 ---
 
 ## Documentation
-- [x] Verify all 45 logos documented/present — **42 logos exist; docs updated to match**
-- [x] Verify all 49 presets documented — **49 confirmed**
-- [x] Remove specific counts from docs — **done, counts removed or corrected**
-- [ ] Document category-based lookup in docs (package drop-in convention)
+- [x] Remove specific counts from docs
+- [x] Document category-based lookup in docs (package drop-in convention)
 
 ## Testing
 - [ ] All logo presets render
@@ -36,4 +34,10 @@ Restructure SDG-FETCH so that separate SDG packages can deploy their own fastfet
 - [x] Fix `sdgfetch-conf` docs: it's `sdgfetch config` subcommand, not a separate binary
 - [x] Fix TEST-CHECKLIST.md to use actual CLI commands
 - [x] Fix tips.list theming claim for `sdgfetch <distro>`
-- [ ] Verify all changes are consistent
+- [x] Rewrite tips.list with current commands and paths
+- [x] Merge 000+001+002 into 000-getting-started.md
+- [x] Rewrite 101-customization.md — recommend user-created categories
+- [x] Absorb 302 content into 201-usage-guide.md, remove ANSI color details
+- [x] Augment 501-integration.md with cross-package contribution docs
+- [x] Remove numeric claims from README.md and all docs
+- [x] Archive removed docs to OLD/SDG-FETCH/docs/

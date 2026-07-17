@@ -1,5 +1,5 @@
 [SDG-FETCH]: run sdgfetch to display system info with your selected logo and preset
-[SDG-FETCH]: sdgfetch-conf lets you pick logos and presets interactively with live previews
-[SDG-FETCH]: add custom logos by placing PNG/JPG images in ~/.config/SDG-FETCH/src/ and running sdgfetch-conf
-[SDG-FETCH]: sdgfetch <logoname> shows the specified logo; sdgfetch distro-themed applies themed ANSI colors
-
+[SDG-FETCH]: sdgfetch config lets you pick logos and presets interactively with live previews
+[SDG-FETCH]: add custom logos by placing ASCII art files in ~/.local/fetch/logos/<yourname>/
+[SDG-FETCH]: sdgfetch convert <image> converts PNG/JPG to ASCII art for use as a logo
+[SDG-FETCH]: sdgfetch <logoname> shows the specified logo via grep matching

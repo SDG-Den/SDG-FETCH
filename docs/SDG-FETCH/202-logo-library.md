@@ -35,6 +35,6 @@ Special modes are handled internally by `fetch-cli.sh`:
 
 - **`none`** — Runs fastfetch with `-l none`, no logo displayed
 - **`distro`** — Uses fastfetch's built-in distro detection for the logo
-- **`distro-themed`** — Uses fastfetch's built-in distro logo with custom ANSI color overrides
+- **`distro-themed`** — Uses fastfetch's built-in distro logo with themed ANSI color overrides
 
 To add new logos, see the [Customization](101-customization.md) guide.

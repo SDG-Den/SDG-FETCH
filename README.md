@@ -8,8 +8,8 @@ SDG-FETCH wraps `fastfetch` with an interactive logo and preset picker. It provi
 
 ## Features
 
-- **ASCII logos** — 42 logos across distros, gaming brands, laptop brands, tech culture, memes, pride, themes, and Windows tributes
-- **Fastfetch presets** — 49 presets: neofetch/screenfetch/paleofetch clones, minimal, framed, tree, themed, comprehensive
+- **ASCII logos** — distros, gaming brands, laptop brands, tech culture, memes, pride, themes, Windows tributes
+- **Fastfetch presets** — neofetch/screenfetch/paleofetch clones, minimal, framed, tree, themed, comprehensive
 - **Persistent state** — logo and preset saved to `~/.config/sdgfetch.state`
 - **Image conversion** — `sdgfetch convert <image>` converts via `jp2a`
 - **Distro override** — `sdgfetch archlinux` selects a matching logo

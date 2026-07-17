@@ -13,20 +13,13 @@ sdgfetch                  # Use current selection from sdgfetch.state
 sdgfetch archlinux        # Override logo (grep matches "archlinux" in logo list)
 ```
 
-How it works:
-
-1. Reads `~/.config/sdgfetch.state` for the saved `logoCategory/logoName:confCategory/configName` pair
-2. If a distro/logo argument is given, grep-matches against available logos
-3. Resolves the logo path from `~/.local/fetch/logos/` and the preset from `~/.local/fetch/conf/`
-4. Runs `fastfetch` with the resolved logo and preset
-
 Logo modes (saved in `sdgfetch.state` via the `config` subcommand):
 
 | Mode | Behavior |
 |------|----------|
 | `none` | Runs `fastfetch -l none` — no logo, just info |
 | `distro` | Runs `fastfetch` without `-l` — uses fastfetch's built-in distro detection |
-| `distro-themed` | Same as distro but with ANSI color overrides for a themed look |
+| `distro-themed` | Same as distro but with themed ANSI color overrides |
 | any other value | Loads the ASCII art file from `~/.local/fetch/logos/<category>/<logoName>` |
 
 ### sdgfetch config
@@ -54,6 +47,29 @@ sdgfetch setconf <name>        # Set config by grep matching
 sdgfetch convert <imagefile>   # Convert image to ASCII art via jp2a
 sdgfetch help                  # Show help text
 ```
+
+## How logo resolution works
+
+The `sdgfetch` command resolves the logo in this order:
+
+1. If a name argument is given (e.g. `sdgfetch archlinux`), grep-match it against available logos and use that
+2. If the saved logo is `none` → `fastfetch -l none`
+3. If the saved logo is `distro` → `fastfetch` with no logo argument (auto-detects)
+4. If the saved logo is `distro-themed` → `fastfetch` with themed ANSI color overrides
+5. Otherwise → `fastfetch -l ~/.local/fetch/logos/<category>/<logoName>`
+
+## State file
+
+Persistent selection is stored in `~/.config/sdgfetch.state`:
+
+```
+logoCategory/logoName:confCategory/configName
+```
+
+- `logoCategory/logoName` — path relative to `~/.local/fetch/logos/` (or `none`, `distro`, `distro-themed`)
+- `confCategory/configName` — path relative to `~/.local/fetch/conf/` (includes `.jsonc` extension)
+
+The file is written by `sdgfetch config` and read by `sdgfetch` on every invocation. If the file is missing or malformed, fastfetch runs with default settings.
 
 ## Dependencies
 
