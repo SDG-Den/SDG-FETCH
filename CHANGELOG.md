@@ -1,3 +1,8 @@
+#  sdg-fetch update 0.3.2
+    
+## changelog  0.3.1 > 0.3.2
+
+update documentation
 #  sdg-fetch update 0.3.1
     
 ## changelog 0.3 > 0.3.1

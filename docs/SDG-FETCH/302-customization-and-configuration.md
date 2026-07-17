@@ -2,36 +2,35 @@
 
 ## Asset Directories
 
-SDG-FETCH uses three directories under `~/.config/SDG-FETCH/`:
+SDG-FETCH uses directories under `~/.local/fetch/`:
 
 | Directory | Purpose |
 |-----------|---------|
-| `src/` | Source images (PNG, JPG, WEBP) for conversion to ASCII |
-| `gen/` | Generated ASCII art logos and manually written logo files |
-| `conf/` | Fastfetch preset JSONC files |
+| `~/.local/fetch/logos/` | ASCII art logo files (organized by category subdirectories) |
+| `~/.local/fetch/conf/` | Fastfetch preset JSONC files (organized by category subdirectories) |
+| `~/.local/fetch/logos/convert/` | Converted ASCII art from `sdgfetch convert` |
 
 ## Adding Custom Logos
 
-Place source images in `~/.config/SDG-FETCH/src/`, then run `sdgfetch-conf` or `update-files.sh` to convert them to ASCII art.
+Place source images (PNG, JPG, JPEG, WEBP) anywhere, then run `sdgfetch convert`:
 
 ```bash
-cp mylogo.png ~/.config/SDG-FETCH/src/
-sdgfetch-conf
+sdgfetch convert mylogo.png
 ```
 
 The conversion pipeline uses `jp2a`:
 
 ```bash
-jp2a --height=22 --colors --background=dark input.png > ~/.config/SDG-FETCH/gen/mylogo
+jp2a --height=22 --colors --background=dark input.png > ~/.local/fetch/logos/convert/mylogo
 ```
 
-Supported source formats: PNG, JPG, JPEG, WEBP. The output file in `gen/` has the same base name without extension.
+The output file in `~/.local/fetch/logos/convert/` has the same base name without extension and appears as `convert/mylogo` in the logo picker.
 
-You can also write ASCII art files directly to `~/.config/SDG-FETCH/gen/` — any file in that directory appears in the logo picker.
+You can also write ASCII art files directly into any subdirectory of `~/.local/fetch/logos/` — any file in that directory tree appears in the logo picker.
 
 ## Modifying Presets
 
-Fastfetch presets are JSONC files in `~/.config/SDG-FETCH/conf/`. You can edit any existing preset or add your own.
+Fastfetch presets are JSONC files in `~/.local/fetch/conf/`. You can edit any existing preset or add your own.
 
 ```jsonc
 {
@@ -41,43 +40,43 @@ Fastfetch presets are JSONC files in `~/.config/SDG-FETCH/conf/`. You can edit a
 }
 ```
 
-Add a new preset by placing a `.jsonc` file in `~/.config/SDG-FETCH/conf/` — it appears in the preset picker automatically.
+Add a new preset by placing a `.jsonc` file in `~/.local/fetch/conf/<category>/` — it appears in the preset picker automatically.
 
 ## State File
 
-Persistent selection is stored in `~/.config/fetch.state` in the format:
+Persistent selection is stored in `~/.config/sdgfetch.state` in the format:
 
 ```
-logoName:configName
+logoCategory/logoName:confCategory/configName
 ```
 
-- `logoName` — filename in `~/.config/SDG-FETCH/gen/` (or `none`, `distro`, `distro-themed`)
-- `configName` — filename in `~/.config/SDG-FETCH/conf/` (including `.jsonc` extension)
+- `logoCategory/logoName` — path relative to `~/.local/fetch/logos/` (or `none`, `distro`, `distro-themed`)
+- `confCategory/configName` — path relative to `~/.local/fetch/conf/` (including `.jsonc` extension)
 
-The file is written by `sdgfetch-conf` and read by `sdgfetch` on every invocation. If the file is missing or malformed, fastfetch runs with default settings.
+The file is written by `sdgfetch config` and read by `sdgfetch` on every invocation. If the file is missing or malformed, fastfetch runs with default settings.
 
 ## Logo Resolution Logic
 
-The logo selection in `fetch.sh` follows this order:
+The logo selection in `fetch-cli.sh` follows this order:
 
-1. If a distro argument is given, use it as the logo (skip state file logic)
+1. If a distro argument is given, grep-match it against available logos
 2. If logo is `none` → `fastfetch -l none`
 3. If logo is `distro` → `fastfetch` (no logo argument — auto-detects)
 4. If logo is `distro-themed` → `fastfetch` with `--logo-color-*` ANSI overrides
-5. Otherwise → `fastfetch -l ~/.config/SDG-FETCH/gen/<logoName>`
+5. Otherwise → `fastfetch -l ~/.local/fetch/logos/<category>/<logoName>`
 
 ## Distro Override
 
-Passing a distro argument to `sdgfetch` overrides the logo selection:
+Passing a name argument to `sdgfetch` overrides the logo selection using grep matching:
 
 ```bash
 sdgfetch archlinux
 ```
 
-| Selected Logo | With Distro Arg |
-|---------------|-----------------|
-| `distro-themed` | Runs `fastfetch -l archlinux` with ANSI color overrides |
-| any other | Runs `fastfetch -l archlinux` without color overrides |
+| Selected Logo | With Name Arg |
+|---------------|---------------|
+| `distro-themed` | Runs `fastfetch -l <matched-path>` with ANSI color overrides |
+| any other | Runs `fastfetch -l <matched-path>` without color overrides |
 
 ## ANSI Color Overrides
 
@@ -93,4 +92,4 @@ When using the `distro-themed` logo mode, SDG-FETCH applies custom ANSI colors. 
 --logo-color-7 bright_magenta
 ```
 
-To change these colors, edit the values in `~/.local/SDG-FETCH/fetch.sh` under the `distro-themed` case.
+To change these colors, edit the values in `~/.local/SDG-FETCH/fetch-cli.sh` under the `distro-themed` case.

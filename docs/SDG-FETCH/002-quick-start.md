@@ -11,7 +11,7 @@ Your system information appears with the currently selected logo and display sty
 ## Pick a different logo or preset
 
 ```sh
-sdgfetch-conf
+sdgfetch config
 ```
 
 An interactive menu opens. The first screen lets you browse logos with a preview. The second screen lets you pick a display preset and preview it live. When you are done, your selection is saved and used from then on.
@@ -22,4 +22,4 @@ An interactive menu opens. The first screen lets you browse logos with a preview
 sdgfetch archlinux
 ```
 
-You can pass any distro name to show its built-in logo.
+You can pass any name to select a matching logo via grep.

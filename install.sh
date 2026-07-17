@@ -16,6 +16,6 @@ cp -r "$WORKDIR/tips/"* "$HOME/.local/tips/"
 
 chmod a+x "$HOME/.local/SDG-FETCH/fetch-cli.sh"
 
-sudo ln -sf "$HOME/.local/SDG-FETCH/fetch.sh-cli" /usr/bin/sdgfetch
+sudo ln -sf "$HOME/.local/SDG-FETCH/fetch-cli.sh" /usr/bin/sdgfetch
 
 which sdgfetch || echo "INSTALL FAILED!"

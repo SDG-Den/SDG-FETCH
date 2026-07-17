@@ -13,22 +13,18 @@ sdgfetch
 
 ## Cross-Package Usage
 
-SDG-FETCH can be called from other scripts or packages. The two CLI entry points are:
+SDG-FETCH can be called from other scripts or packages. The CLI entry point is:
 
-- `/usr/bin/sdgfetch` — Display system info
-- `/usr/bin/sdgfetch-conf` — Open the interactive configurator
+- `/usr/bin/sdgfetch` — Display system info and open the interactive configurator (`sdgfetch config`)
 
 Installation paths for programmatic access:
 
 | Path | Contents |
 |------|----------|
-| `~/.local/SDG-FETCH/fetch.sh` | Source script for sdgfetch |
-| `~/.local/SDG-FETCH/fetch-conf.sh` | Source script for sdgfetch-conf |
-| `~/.local/SDG-FETCH/update-files.sh` | Image conversion script |
-| `~/.config/SDG-FETCH/gen/` | ASCII art logo files |
-| `~/.config/SDG-FETCH/conf/` | Fastfetch preset files |
-| `~/.config/SDG-FETCH/src/` | Source images for conversion |
-| `~/.config/fetch.state` | Persistent state |
+| `~/.local/SDG-FETCH/fetch-cli.sh` | Main CLI script |
+| `~/.local/fetch/logos/` | ASCII art logo files (organized by category) |
+| `~/.local/fetch/conf/` | Fastfetch preset files (organized by category) |
+| `~/.config/sdgfetch.state` | Persistent state |
 | `~/.local/docs/SDG-FETCH/` | Documentation |
 | `~/.local/tips/SDG-FETCH/` | Tips |
 
