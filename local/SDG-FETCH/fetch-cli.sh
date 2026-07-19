@@ -54,12 +54,12 @@ case $ARG in
 	echo "[sdgfetch] selected config: $SELECTEDCONF"
 		;;
 	setlogo)
-	OPT=$(echo "$LOGOS" | grep -e "$ARG2")
+	OPT=$(echo "$LOGOS" | grep -e "$ARG2" | head -n 1)
 	echo "$OPT:$CONF" > $STATEFILE
 	echo "[sdgfetch] selected logo: $OPT"
 		;;
 	setconf)
-	OPT=$(echo "$CONFS" | grep -e "$ARG2")
+	OPT=$(echo "$CONFS" | grep -e "$ARG2" | head -n 1)
 	echo "$LOGO:$OPT" > $STATEFILE
 	echo "[sdgfetch] selected configuration: $OPT"
 		;;
