@@ -142,6 +142,9 @@ case $ARG in
 		echo "sdgfetch convert <imagefile> - converts the target image to a formatted ascii"
 		echo "sdgfetch help - shows this list" 
 		;;
+	"bedrock-check")
+		bedrock-check
+		;;
 	"")
 		fastfetch -l $LOGO_DIR/$LOGO -c $CONF_DIR/$CONF
 		bedrock-check
