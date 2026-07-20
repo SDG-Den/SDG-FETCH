@@ -56,6 +56,7 @@ slackware=
 solus=
 ubuntu=
 void=
+bedrock=(BRL)
 EOF
 )
 
@@ -65,6 +66,7 @@ bedrock-check() {
 	STRATA_STRING=""
 	for STRATUM in $STRATA_LIST; do
 		LOGO=$(echo "$BEDROCK_LOGOS" | grep -e "$STRATUM" | cut -d= -f2)
+		if [ "$LOGO" == "" ]; then LOGO=""; fi
 		STRATA_STRING=$(echo "$STRATA_STRING $LOGO $STRATUM")
 	done
 	echo "$STRATA_STRING"
