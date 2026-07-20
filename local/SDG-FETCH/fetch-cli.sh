@@ -30,32 +30,32 @@ $CONFCAT/$OPT"
 	done
 done
 BEDROCK_LOGOS=$(cat <<- EOF
-alma=
-alpine=
-aosc=
-arch=
-artix=
-centos=
+alma=\e[38;2;0;52;102m\e[0m
+alpine=\e[38;2;13;89;127m\e[0m
+aosc=\e[38;2;15;74;118m\e[0m
+arch=\e[38;2;23;147;209m\e[0m
+artix=\e[38;2;16;160;204m\e[0m
+centos=\e[38;2;147;34;121m\e[0m
 chimera=
 crux=
-debian=
-devuan=
+debian=\e[38;2;215;10;83m\e[0m
+devuan=\e[38;2;15;107;97m\e[0m
 exherbo=
-fedora=
-gentoo=
+fedora=\e[38;2;11;87;164m\e[0m
+gentoo=\e[38;2;84;72;122m\e[0m
 kiss=
-mageia=
-manjaro=
-nixos=
-opensuse=
+mageia=\e[38;2;60;110;180m\e[0m
+manjaro=\e[38;2;53;191;92m\e[0m
+nixos=\e[38;2;77;111;183m\e[0m
+opensuse=\e[38;2;115;186;37m\e[0m
 openwrt=
-puppy=
-redhat=
-rocky=
-slackware=
-solus=
-ubuntu=
-void=
+puppy=\e[38;2;61;106;156m\e[0m
+redhat=\e[38;2;204;0;0m\e[0m
+rocky=\e[38;2;16;185;129m\e[0m
+slackware=\e[38;2;53;181;229m\e[0m
+solus=\e[38;2;82;148;226m\e[0m
+ubuntu=\e[38;2;233;84;32m\e[0m
+void=\e[38;2;71;128;97m\e[0m
 bedrock=(BRL)
 EOF
 )
@@ -69,7 +69,7 @@ bedrock-check() {
 		if [ "$LOGO" == "" ]; then LOGO=""; fi
 		STRATA_STRING=$(echo "$STRATA_STRING $LOGO $STRATUM")
 	done
-	echo "$STRATA_STRING"
+		echo -e "$STRATA_STRING"
 	
 	fi
 }
