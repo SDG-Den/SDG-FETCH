@@ -67,8 +67,9 @@ bedrock-check() {
 	for STRATUM in $STRATA_LIST; do
 		LOGO=$(echo "$BEDROCK_LOGOS" | grep -e "$STRATUM" | cut -d= -f2)
 		if [ "$LOGO" == "" ]; then LOGO=""; fi
-		STRATA_STRING=$(echo "$STRATA_STRING | $LOGO $STRATUM")
+		STRATA_STRING=$(echo "$STRATA_STRING $LOGO $STRATUM |")
 	done
+		STRATA_STRING=$(echo "$STRATA_STRING" | sed 's/|$//g')
 		echo -e "$STRATA_STRING"
 	
 	fi
