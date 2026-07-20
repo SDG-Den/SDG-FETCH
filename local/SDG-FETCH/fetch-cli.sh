@@ -63,7 +63,7 @@ EOF
 bedrock-check() {
 	if which brl > /dev/null; then
 	STRATA_LIST=$(brl list)
-	STRATA_STRING=""
+	STRATA_STRING="Strata: "
 	for STRATUM in $STRATA_LIST; do
 		LOGO=$(echo "$BEDROCK_LOGOS" | grep -e "$STRATUM" | cut -d= -f2)
 		if [ "$LOGO" == "" ]; then LOGO=""; fi
