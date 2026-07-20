@@ -56,7 +56,7 @@ slackware=\e[38;2;53;181;229m\e[0m
 solus=\e[38;2;82;148;226m\e[0m
 ubuntu=\e[38;2;233;84;32m\e[0m
 void=\e[38;2;71;128;97m\e[0m
-bedrock=(BRL)
+bedrock=\e[38;2;140;140;140m\e[0m
 EOF
 )
 
@@ -67,7 +67,7 @@ bedrock-check() {
 	for STRATUM in $STRATA_LIST; do
 		LOGO=$(echo "$BEDROCK_LOGOS" | grep -e "$STRATUM" | cut -d= -f2)
 		if [ "$LOGO" == "" ]; then LOGO=""; fi
-		STRATA_STRING=$(echo "$STRATA_STRING $LOGO $STRATUM")
+		STRATA_STRING=$(echo "$STRATA_STRING | $LOGO $STRATUM")
 	done
 		echo -e "$STRATA_STRING"
 	
