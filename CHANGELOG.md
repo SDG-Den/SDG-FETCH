@@ -1,3 +1,8 @@
+#  sdg-fetch update 0.5
+    
+## changelog 0.4 > 0.5
+
+added special support for bedrock linux
 #  sdg-fetch update 0.4
     
 ## changelog 0.3.2 > 0.4
