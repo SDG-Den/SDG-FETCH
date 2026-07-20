@@ -29,6 +29,48 @@ for CONFCAT in $CONF_CATS; do
 $CONFCAT/$OPT"
 	done
 done
+BEDROCK_LOGOS=$(cat <<- EOF
+alma=
+alpine=
+aosc=
+arch=
+artix=
+centos=
+chimera=
+crux=
+debian=
+devuan=
+exherbo=
+fedora=
+gentoo=
+kiss=
+mageia=
+manjaro=
+nixos=
+opensuse=
+openwrt=
+puppy=
+redhat=
+rocky=
+slackware=
+solus=
+ubuntu=
+void=
+EOF
+)
+
+bedrock-check() {
+	if which brl > /dev/null; then
+	STRATA_LIST=$(brl list)
+	STRATA_STRING=""
+	for STRATUM in $STRATA_LIST; do
+		LOGO=$(echo "$BEDROCK_LOGOS" | grep -e "$STRATUM" | cut -d= -f2)
+		STRATA_STRING=$(echo "$STRATA_STRING $LOGO $STRATUM")
+	done
+	echo "$STRATA_STRING"
+	
+	fi
+}
 
 LOGO=$(cat $STATEFILE | cut -d: -f1)
 CONF=$(cat $STATEFILE | cut -d: -f2)
@@ -102,23 +144,29 @@ case $ARG in
 		;;
 	"")
 		fastfetch -l $LOGO_DIR/$LOGO -c $CONF_DIR/$CONF
+		bedrock-check
 		;;
 	"distro")
 		fastfetch -c $CONF_DIR/$CONF
+		bedrock-check
 		;;
 	"distro-themed")
 		fastfetch -c $CONF_DIR/$CONF --logo-color-1 magenta --logo-color-2 bright_cyan --logo-color-3 blue --logo-color-4 bright_cyan --logo-color-5 bright_cyan --logo-color-6 bright_blue --logo-color-7 bright_magenta
+		bedrock-check
 		;;
 	"none")
 		fastfetch -l none -c $CONF_DIR/$CONF
+		bedrock-check
 		;;
 					 
 	*)
 		OPT=$(echo "$LOGOS" | grep -e "$ARG")
 		if [ "$OPT" != "" ]; then
 			fastfetch -l $LOGO_DIR/$OPT -c $CONF_DIR/$CONF
+			bedrock-check
 		else
 			fastfetch -l $ARG -c $CONF_DIR/$CONF
+			bedrock-check
 		fi
 		;;
 esac
