@@ -64,9 +64,11 @@ bedrock-check() {
 	if which brl > /dev/null; then
 	STRATA_LIST=$(brl list)
 	STRATA_STRING="Strata: "
+	STRATA_INIT=$(brl which 1)
 	for STRATUM in $STRATA_LIST; do
 		LOGO=$(echo "$BEDROCK_LOGOS" | grep -e "$STRATUM" | cut -d= -f2)
 		if [ "$LOGO" == "" ]; then LOGO=""; fi
+		if [ "$STRATUM" == "$STRATA_INIT" ]; then STRATUM="\e[4m$STRATUM\e[0m"; fi
 		STRATA_STRING=$(echo "$STRATA_STRING $LOGO $STRATUM |")
 	done
 		STRATA_STRING=$(echo "$STRATA_STRING" | sed 's/|$//g')
