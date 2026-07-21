@@ -61,7 +61,7 @@ EOF
 )
 
 bedrock-check() {
-	if which brl > /dev/null; then
+	if which brl > /dev/null 2>&1; then
 	STRATA_LIST=$(brl list)
 	STRATA_STRING="Strata: "
 	STRATA_INIT=$(brl which 1)
