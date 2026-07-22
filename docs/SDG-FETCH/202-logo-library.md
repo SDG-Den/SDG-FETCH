@@ -28,6 +28,14 @@ SDG-FETCH ships with ASCII art logos in `~/.local/fetch/logos/SDG-FETCH/`. Each 
 ### Windows Tributes
 `win10`, `win11`, `win7`, `winold`
 
+### Bedrock Strata
+
+On Bedrock Linux, `sdgfetch` displays active strata with colored Nerd Font icons. The stratum→icon mapping is built into `fetch-cli.sh` and covers ~25 distros:
+
+`alma`, `alpine`, `aosc`, `arch`, `artix`, `centos`, `chimera`, `crux`, `debian`, `devuan`, `exherbo`, `fedora`, `gentoo`, `kiss`, `mageia`, `manjaro`, `nixos`, `opensuse`, `openwrt`, `puppy`, `redhat`, `rocky`, `slackware`, `solus`, `ubuntu`, `void`, `bedrock`
+
+Unknown distro names display a generic icon. The init stratum is underlined in the output.
+
 ### Special Modes
 `distro`, `distro-themed`, `none`
 

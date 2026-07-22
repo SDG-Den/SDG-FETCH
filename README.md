@@ -13,6 +13,7 @@ SDG-FETCH wraps `fastfetch` with an interactive logo and preset picker. It provi
 - **Persistent state** — logo and preset saved to `~/.config/sdgfetch.state`
 - **Image conversion** — `sdgfetch convert <image>` converts via `jp2a`
 - **Distro override** — `sdgfetch archlinux` selects a matching logo
+- **Bedrock Linux strata detection** — auto-detects and displays active strata (with colored icons) after every fetch; `sdgfetch bedrock-check` runs it standalone
 
 ## Documentation
 
@@ -36,6 +37,7 @@ Quick tips in `~/.local/tips/SDG-FETCH/tips.list` covering common workflows: run
 sdgfetch                  # Display with current selection
 sdgfetch archlinux        # Use matching logo
 sdgfetch config           # Interactive logo + preset picker
+sdgfetch bedrock-check    # Show Bedrock Linux strata (standalone)
 ```
 
 ## Installation

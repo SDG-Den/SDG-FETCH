@@ -2,7 +2,7 @@ Package Name: sdg-fetch
 Descriptive Name: SDG System Fetch
 Source: https://github.com/SDG-Den/SDG-FETCH
 Maintainer: SDGDen
-Version:0.5
+Version:0.5.1
 
 Dependencies:
 fastfetch, jp2a, fzf, bat

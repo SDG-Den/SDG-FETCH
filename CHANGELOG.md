@@ -1,3 +1,9 @@
+#  sdg-fetch update 0.5.1
+    
+## changelog 0.5 > 0.5.1
+
+updated docs to include information about bedrock. 
+
 #  sdg-fetch update 0.5
     
 ## changelog 0.4 > 0.5

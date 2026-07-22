@@ -44,9 +44,25 @@ sdgfetch listlogo              # List all available logos
 sdgfetch listconf              # List all available configs
 sdgfetch setlogo <name>        # Set logo by grep matching
 sdgfetch setconf <name>        # Set config by grep matching
+sdgfetch bedrock-check         # Show Bedrock Linux strata
 sdgfetch convert <imagefile>   # Convert image to ASCII art via jp2a
 sdgfetch help                  # Show help text
 ```
+
+## Bedrock Linux Integration
+
+When running on Bedrock Linux, SDG-FETCH automatically detects and displays active strata after every `fastfetch` invocation. The output appears after the system info as a `Strata:` line with colored distro icons.
+
+Detection is handled by `bedrock-check()`:
+
+1. Checks if `brl` (Bedrock's stratum manager) is available
+2. Lists all strata via `brl list`
+3. Looks up each stratum name in a built-in distro→icon map (arch, fedora, debian, ubuntu, etc.)
+4. Unknown distros show a generic icon
+5. The init stratum is underlined
+6. Falls back silently if `brl` is not present (no-op on non-Bedrock systems)
+
+The `sdgfetch bedrock-check` subcommand runs this detection standalone, without running fastfetch.
 
 ## How logo resolution works
 
